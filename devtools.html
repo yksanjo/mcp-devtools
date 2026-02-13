@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MCP DevTools</title>
+  <link rel="stylesheet" href="devtools.css">
+</head>
+<body>
+  <div id="mcp-devtools-container">
+    <div class="tabs">
+      <button class="tab active" data-panel="traffic">Traffic</button>
+      <button class="tab" data-panel="playground">Playground</button>
+      <button class="tab" data-panel="stats">Stats</button>
+    </div>
+    
+    <div class="panel-content">
+      <div id="traffic-panel" class="panel active">
+        <div class="panel-header">
+          <div class="filter-bar">
+            <select id="traffic-filter">
+              <option value="all">All Requests</option>
+              <option value="tools">Tools</option>
+              <option value="resources">Resources</option>
+              <option value="prompts">Prompts</option>
+            </select>
+            <input type="text" id="traffic-search" placeholder="Search requests...">
+            <button id="clear-traffic" class="btn btn-danger">Clear</button>
+          </div>
+        </div>
+        <div class="request-list" id="request-list">
+          <div class="empty-state">
+            <p>No MCP traffic captured yet</p>
+            <p class="hint">Start using MCP servers to see traffic here</p>
+          </div>
+        </div>
+        <div class="request-detail" id="request-detail">
+          <div class="detail-header">
+            <h3>Request Details</h3>
+            <button class="btn-close" id="close-detail">×</button>
+          </div>
+          <div class="detail-content">
+            <div class="detail-section">
+              <h4>Request</h4>
+              <pre id="request-json"></pre>
+            </div>
+            <div class="detail-section">
+              <h4>Response</h4>
+              <pre id="response-json"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="playground-panel" class="panel">
+        <div class="playground-header">
+          <h3>Tool Playground</h3>
+        </div>
+        <div class="playground-content">
+          <div class="playground-form">
+            <label>
+              Tool Name
+              <input type="text" id="tool-name" placeholder="Enter tool name">
+            </label>
+            <label>
+              Parameters (JSON)
+              <textarea id="tool-params" placeholder='{"key": "value"}'></textarea>
+            </label>
+            <button id="execute-tool" class="btn btn-primary">Execute Tool</button>
+          </div>
+          <div class="playground-result">
+            <div class="result-header">
+              <h4>Result</h4>
+              <span id="result-status"></span>
+            </div>
+            <pre id="result-json"></pre>
+          </div>
+          <div class="playground-history">
+            <h4>Call History</h4>
+            <div id="call-history"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="stats-panel" class="panel">
+        <div class="stats-header">
+          <h3>Token & Latency Monitor</h3>
+          <button id="reset-stats" class="btn btn-danger">Reset</button>
+        </div>
+        <div class="stats-summary">
+          <div class="stat-card">
+            <div class="stat-value" id="total-requests">0</div>
+            <div class="stat-label">Total Requests</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="total-tokens">0</div>
+            <div class="stat-label">Total Tokens</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="avg-latency">0ms</div>
+            <div class="stat-label">Avg Latency</div>
+          </div>
+        </div>
+        <div class="tool-stats" id="tool-stats">
+          <h4>Per-Tool Statistics</h4>
+          <div class="tool-stats-list">
+            <div class="empty-state">
+              <p>No tool statistics yet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="status-bar">
+      <span id="connection-status">Connected</span>
+      <span id="request-count">0 requests</span>
+    </div>
+  </div>
+  
+  <script src="devtools.js"></script>
+</body>
+</html>

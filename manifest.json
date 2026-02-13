@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "MCP DevTools",
+  "version": "0.1.0",
+  "description": "Browser extension + CLI for debugging MCP servers in real-time",
+  "icons": {
+    "16": "icons/icon16.svg",
+    "48": "icons/icon16.svg",
+    "128": "icons/icon16.svg"
+  },
+  "devtools_page": "devtools.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://localhost/*",
+    "ws://localhost:*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.svg"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["lib/mcp-parser.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

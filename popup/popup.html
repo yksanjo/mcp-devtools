@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MCP DevTools</title>
+  <style>
+    :root {
+      --primary: #1a1a2e;
+      --secondary: #16213e;
+      --accent: #e94560;
+      --success: #4ecca3;
+      --text: #eaeaea;
+      --text-dim: #8b8b9e;
+      --border: #2d2d44;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      width: 320px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 12px;
+      color: var(--text);
+      background: var(--primary);
+    }
+    
+    .header {
+      padding: 16px;
+      background: var(--secondary);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    
+    .header h1 {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    .header .version {
+      font-size: 10px;
+      color: var(--text-dim);
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding: 12px;
+    }
+    
+    .stat {
+      background: var(--secondary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    
+    .stat-label {
+      font-size: 10px;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+    
+    .actions {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #d63850;
+    }
+    
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--accent);
+    }
+    
+    .status {
+      padding: 8px 12px;
+      background: var(--secondary);
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+    }
+    
+    .quick-links {
+      padding: 12px;
+      border-top: 1px solid var(--border);
+    }
+    
+    .quick-links h3 {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .link {
+      display: block;
+      padding: 8px;
+      background: var(--secondary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 11px;
+      margin-bottom: 4px;
+      transition: all 0.2s ease;
+    }
+    
+    .link:hover {
+      border-color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">M</div>
+    <div>
+      <h1>MCP DevTools</h1>
+      <span class="version">v0.1.0</span>
+    </div>
+  </div>
+  
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value" id="request-count">0</div>
+      <div class="stat-label">Requests</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="token-count">0</div>
+      <div class="stat-label">Tokens</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="latency">0ms</div>
+      <div class="stat-label">Avg Latency</div>
+    </div>
+  </div>
+  
+  <div class="actions">
+    <button class="btn btn-primary" id="open-devtools">Open DevTools</button>
+    <button class="btn btn-secondary" id="clear-data">Clear All Data</button>
+  </div>
+  
+  <div class="quick-links">
+    <h3>Quick Links</h3>
+    <a href="#" class="link" id="link-traffic">Traffic Inspector</a>
+    <a href="#" class="link" id="link-playground">Tool Playground</a>
+    <a href="#" class="link" id="link-stats">Statistics</a>
+  </div>
+  
+  <div class="status">
+    <span class="status-dot"></span>
+    <span>Ready</span>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
