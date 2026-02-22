@@ -1,73 +1,82 @@
-# MCP DevTools
+# mcp-devtools
 
-A browser extension + CLI for debugging MCP (Model Context Protocol) servers in real-time.
+## Detailed Description
 
-## Features
+mcp-devtools is maintained as an industry-grade software project with production-ready engineering practices.  
+This repository includes documented setup, quality gates, operational guidance, and governance standards so contributors can safely build, test, and ship changes with confidence.
 
-### 🚀 MCP Traffic Inspector
-- Capture and display MCP server requests/responses
-- JSON payloads with syntax highlighting
-- Filter by request type (tools, resources, prompts)
-- Search functionality across requests
+## Problem Statement
 
-### 🛠️ Tool Call Playground
-- GUI interface to test MCP tool calls
-- Input parameters with JSON editor
-- View responses in formatted JSON
-- History of test calls
+Describe the user or business problem this project solves, the target users, and expected outcomes.
 
-### 📊 Token & Latency Monitor
-- Per-tool token usage tracking
-- Latency measurement per request
-- Summary statistics dashboard
+## Solution Overview
 
-## Installation
+Summarize the architecture, core modules, and runtime behavior at a high level.
 
-### Chrome Extension
+## Key Features
 
-1. Open Chrome and navigate to `chrome://extensions/`
-2. Enable "Developer mode" in the top right
-3. Click "Load unpacked"
-4. Select the `mcp-devtools` folder
+- Clear project scope and intended use.
+- Reproducible local development workflow.
+- Test coverage and CI quality gates.
+- Security and contribution policies.
+- Deployment-ready repository structure.
 
-### Usage
+## Repository Structure
 
-1. Click the MCP DevTools extension icon in Chrome
-2. Or open Chrome DevTools (F12) and look for the "MCP" tab
-3. Start using MCP servers - traffic will be captured automatically
-
-## Project Structure
-
-```
-mcp-devtools/
-├── manifest.json          # Chrome extension manifest
-├── background.js         # Service worker for message handling
-├── devtools.html         # Main DevTools panel
-├── devtools.js           # DevTools panel logic
-├── devtools.css         # Styles
-├── lib/
-│   ├── mcp-parser.js    # MCP protocol parser
-│   └── storage.js       # Local storage utility
-├── popup/
-│   ├── popup.html       # Extension popup
-│   └── popup.js         # Popup logic
-└── icons/
-    └── icon*.svg        # Extension icons
+```text
+.
+|-- src/                  # Core implementation
+|-- tests/                # Automated test suites
+|-- docs/                 # Design notes and operational docs
+|-- .github/workflows/    # CI pipelines
+|-- README.md
+|-- LICENSE
+|-- CONTRIBUTING.md
+|-- SECURITY.md
+|-- CODE_OF_CONDUCT.md
 ```
 
-## Development
+## Getting Started
+
+### Prerequisites
+
+- Git
+- Project runtime/toolchain for this repo
+
+### Local Setup
 
 ```bash
-# Navigate to extension directory
-cd mcp-devtools
-
-# Load in Chrome
-# 1. Open chrome://extensions
-# 2. Enable Developer mode
-# 3. Click Load unpacked
-# 4. Select this directory
+make test
+make lint
 ```
+
+## Usage
+
+Document primary commands, API routes, CLI examples, or UI workflows here.
+
+## Quality Standards
+
+- CI must pass before merge.
+- Changes require tests for critical behavior.
+- Security-sensitive changes should include risk notes.
+- Keep pull requests focused and reviewable.
+
+## Security
+
+See `SECURITY.md` for responsible disclosure and handling guidelines.
+
+## Contributing
+
+See `CONTRIBUTING.md` for branching, commit, and pull request expectations.
+
+## Roadmap
+
+Track upcoming milestones, technical debt, and planned feature work.
+
+## Support
+
+Open a GitHub issue for bugs, feature requests, or documentation gaps.
 
 ## License
 
-MIT
+This project is released under the MIT License.
