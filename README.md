@@ -1,5 +1,12 @@
 # mcp-devtools
 
+Production-grade project scaffold focused on reliability, maintainability, and fast onboarding.
+
+[![CI](https://img.shields.io/github/actions/workflow/status/yksanjo/mcp-devtools/ci.yml?branch=main&label=ci)](https://github.com/yksanjo/mcp-devtools/actions)
+![License](https://img.shields.io/github/license/yksanjo/mcp-devtools)
+![Last Commit](https://img.shields.io/github/last-commit/yksanjo/mcp-devtools)
+![Repo Size](https://img.shields.io/github/repo-size/yksanjo/mcp-devtools)
+
 ## Detailed Description
 
 mcp-devtools is maintained as an industry-grade software project with production-ready engineering practices.  
